@@ -3,12 +3,14 @@
 const inputSymbols = document.querySelector("#validation-input");
 
 const result = () => {
-    if (inputSymbols.value.length !== 6){
+    if (String(inputSymbols.value.length) !== inputSymbols.dataset.length){
         inputSymbols.classList.add("invalid")
+        inputSymbols.classList.remove("valid")
+        return
     } else {
-        inputSymbols.classList.remove("invalid")
         inputSymbols.classList.add("valid")
+        inputSymbols.classList.remove("invalid")
 }
 }
 
-inputSymbols.addEventListener("focus", result)
+inputSymbols.addEventListener("blur", result)
