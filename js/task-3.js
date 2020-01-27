@@ -23,13 +23,6 @@ gallery.classList.add("list-gallery")
 
 const markup = createGalleryList(images);
 
-
-gallery.insertAdjacentHTML("beforeend", markup);
-
-function createGalleryList(images){
-    return images.map(image => createGalleryListImg(image)).join("");
-}
-
 function createGalleryListImg({ url, alt }){
     const img = `
     <li class = "list-gallery__item">
@@ -38,3 +31,9 @@ function createGalleryListImg({ url, alt }){
     `;
     return img;  
 }
+
+function createGalleryList(images){
+  return images.reduce((markup, image) => markup += createGalleryListImg(image), "");
+}
+
+gallery.innerHTML = markup;

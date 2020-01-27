@@ -11,11 +11,10 @@ const ingredients = [
 
 const ul = document.querySelector("#ingredients");
 
-function addIngredients(ingredients) {
-    for (let ingredient of ingredients) {
+function createIngredients(ingredient) {
         const item = document.createElement("li");
         item.textContent = ingredient;
-        ul.append(item);
-    }
+        return item;
 }
-addIngredients(ingredients);
+const arrayElements = ingredients.map(item => createIngredients(item))
+ul.append(...arrayElements)
