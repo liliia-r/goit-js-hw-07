@@ -7,10 +7,9 @@ const result = () => {
         inputSymbols.classList.add("invalid")
         inputSymbols.classList.remove("valid")
         return
-    } else {
+    }
         inputSymbols.classList.add("valid")
         inputSymbols.classList.remove("invalid")
-}
 }
 
 inputSymbols.addEventListener("blur", result)
